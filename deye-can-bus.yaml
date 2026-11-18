@@ -75,12 +75,12 @@ canbus:
             id(battery_discharge_current_limit).publish_state(i_discharge);
             float u_min = ((x[7] << 8) | x[6]) / 10.0;
             id(battery_discharge_voltage).publish_state(u_min);
-            if (!id(send_flag)) {
-              std::vector<uint8_t> data{0x01};
-              id(mcp2515_can)->send_data(0x18A2FF80, true, data);
-              id(send_flag) = true;
-              ESP_LOGI("canid 0x351:", "WE HAVE SENT OUR WAKE UP SIGNAL");
-            }
+            #if (!id(send_flag)) {
+            #  std::vector<uint8_t> data{0x01};
+            #  id(mcp2515_can)->send_data(0x18A2FF80, true, data);
+            #  id(send_flag) = true;
+            #  ESP_LOGI("canid 0x351:", "WE HAVE SENT OUR WAKE UP SIGNAL");
+            #}
           #  ESP_LOGI("canid 0x351:", "U_max: %.1f V, I_charge %d A, I_discharge: %d A, U_min %.1f V", u_max, i_charge, i_discharge, u_min );
     - can_id: 0x355
       then:
