@@ -199,8 +199,8 @@ canbus:
 ###########################################################################################################            
   - platform: esp32_can
     id: pcs_can
-    tx_pin: GPIO04 # CAN HIGH BLUE
-    rx_pin: GPIO016 # CAN LOW LIGHT-BLUE
+    tx_pin: GPIO21 # CAN HIGH BLUE
+    rx_pin: GPIO022 # CAN LOW LIGHT-BLUE
     can_id: 4
     bit_rate: 500KBPS
     on_frame:
