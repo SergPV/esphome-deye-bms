@@ -39,12 +39,6 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-globals:
-  - id: send_flag
-    type: bool
-    restore_value: no
-    initial_value: 'false'
-
 canbus:
             
 ###########################################################################################################
